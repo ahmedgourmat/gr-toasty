@@ -1,5 +1,7 @@
 import { Toast, ToastInput } from "./types";
 
+console.log("store instance created", Math.random())
+
 const globalStore = globalThis as typeof globalThis & {
     __gr_toasty_listeners__: Function[]
     __gr_toasty_toasts__: Toast[]
@@ -35,6 +37,7 @@ export const deleteToast = (id: string) => {
 }
 
 export const addToast = (toast: ToastInput) => {
+    console.log("addToast called", toast)
     const newToast = { ...toast, id: crypto.randomUUID() }
     toasts = [...toasts, newToast]
     globalStore.__gr_toasty_toasts__ = toasts
