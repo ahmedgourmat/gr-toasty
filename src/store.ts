@@ -1,7 +1,5 @@
 import { Toast, ToastInput } from "./types";
 
-console.log("store instance created", Math.random())
-
 const globalStore = globalThis as typeof globalThis & {
     __gr_toasty_listeners__: Function[]
     __gr_toasty_toasts__: Toast[]
@@ -18,7 +16,6 @@ let listeners = globalStore.__gr_toasty_listeners__
 let toasts = globalStore.__gr_toasty_toasts__
 
 export const subscribe = (listener: Function) => {
-    console.log("subscribe called, listeners count:", globalStore.__gr_toasty_listeners__.length)
     listeners.push(listener)
 
     return () => {
@@ -28,7 +25,6 @@ export const subscribe = (listener: Function) => {
 }
 
 const notify = (toasts: Toast[]) => {
-    console.log("notify called, listeners:", globalStore.__gr_toasty_listeners__.length, "toasts:", toasts.length)
     listeners.forEach(listener => listener(toasts))
 }
 
@@ -39,7 +35,6 @@ export const deleteToast = (id: string) => {
 }
 
 export const addToast = (toast: ToastInput) => {
-    console.log("addToast called", toast)
     const newToast = { ...toast, id: crypto.randomUUID() }
     toasts = [...toasts, newToast]
     globalStore.__gr_toasty_toasts__ = toasts
