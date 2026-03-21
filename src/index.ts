@@ -1,4 +1,7 @@
-export {toast} from "./api";
-export {Toast, ToasterProps} from "./types";
 import Toaster from "./Toaster";
-export {Toaster}
+import { Toast, ToasterProps } from "./types"
+import { toast } from "./api";
+
+
+export { Toaster, toast }
+export type { Toast, ToasterProps }
