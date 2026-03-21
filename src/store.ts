@@ -1,4 +1,4 @@
-import { Toast } from "./types";
+import { Toast, ToastInput } from "./types";
 
 const globalStore = globalThis as typeof globalThis & {
     __gr_toasty_listeners__: Function[]
@@ -34,7 +34,7 @@ export const deleteToast = (id: string) => {
     notify(toasts)
 }
 
-export const addToast = (toast: Toast) => {
+export const addToast = (toast: ToastInput) => {
     const newToast = { ...toast, id: crypto.randomUUID() }
     toasts = [...toasts, newToast]
     globalStore.__gr_toasty_toasts__ = toasts
