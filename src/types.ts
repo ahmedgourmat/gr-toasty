@@ -1,12 +1,14 @@
+export type Position = "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center" | "center"
+export type ToastType = "success" | "error" | "info" | "warning" | "default"
+
 export interface ToasterProps {
-    position?: "bottom-left" | "bottom-center" | "bottom-right" | "top-left" | "top-center" | "top-right";
+    position?: Position
+    duaration?: number;
+    styling?: React.CSSProperties
 }
-
-
-
 
 export interface Toast {
     id?: string
     message: string
-    type: 'success' | 'error' | 'info' | 'warning' | 'default'
+    type: ToastType
 }
