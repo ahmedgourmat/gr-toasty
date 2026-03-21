@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react'
 import { ToastType } from './types'
 import { deleteToast } from './store'
 import { getExitStyle, typeStyles } from './styles/toastItem'
-import { ExitVariant } from './types'
+import { AnimationStyle } from './types'
 
 const ToasterItem = ({
     id,
     message,
     type,
     duration = 4000,
-    exitVariant = "default"
+    animationStyle = "default"
 }: {
     id: string
     message: string
     type: ToastType
     duration?: number
-    exitVariant?: ExitVariant
+    animationStyle?: AnimationStyle
 }) => {
     const [isLeaving, setIsLeaving] = useState(false)
 
@@ -32,6 +32,7 @@ const ToasterItem = ({
 
     return (
         <div
+            className={`gr-toasty__item gr-toasty__item--${animationStyle}`}
             onTransitionEnd={handleTransitionEnd}
             style={{
                 display: "flex",
@@ -46,10 +47,9 @@ const ToasterItem = ({
                 fontSize: "14px",
                 fontWeight: 500,
                 cursor: "default",
-                transition: "all 0.3s ease",
                 opacity: isLeaving ? 0 : 1,
                 ...typeStyles[type],
-                ...(isLeaving ? getExitStyle(exitVariant) : {})
+                ...(isLeaving ? getExitStyle(animationStyle) : {})
             }}
         >
             <span>{message}</span>

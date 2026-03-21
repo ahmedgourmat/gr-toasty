@@ -1,5 +1,5 @@
 import React from "react"
-import { ExitVariant, ToastType } from "../types"
+import { AnimationStyle, ToastType } from "../types"
 
 export const typeStyles: Record<ToastType, React.CSSProperties> = {
     success: { backgroundColor: "#f0fdf4", color: "#166534", border: "1px solid #bbf7d0" },
@@ -9,8 +9,8 @@ export const typeStyles: Record<ToastType, React.CSSProperties> = {
     default: { backgroundColor: "#fafafa", color: "#18181b", border: "1px solid #e4e4e7" },
 }
 
-export const getExitStyle = (exitVariant: ExitVariant): React.CSSProperties => {
-    switch (exitVariant) {
+export const getExitStyle = (animationStyle: AnimationStyle): React.CSSProperties => {
+    switch (animationStyle) {
         case "mac":     return { transform: "scale(0.5)", opacity: 0 }
         case "left":    return { transform: "translateX(-150%)", opacity: 0 }
         case "right":   return { transform: "translateX(150%)", opacity: 0 }

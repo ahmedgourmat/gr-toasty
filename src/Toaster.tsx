@@ -28,7 +28,7 @@ const Toaster = (props: ToasterProps) => {
                     message={toast.message}
                     type={toast.type}
                     duration={props.duration ?? 4000}
-                    exitVariant={props.exitVariant ?? "default"}
+                    animationStyle={props.animationStyle ?? "default"}
                 />
             ))
             }
