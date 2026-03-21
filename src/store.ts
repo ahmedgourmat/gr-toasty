@@ -1,4 +1,4 @@
-import { Toast } from "./types";
+import { Toast, ToastInput } from "./types";
 
 let listeners: Function[] = [];
 let toasts : Toast[] = [];
@@ -21,8 +21,8 @@ export const deleteToast = (id : string) => {
     notify(toasts)
 }
 
-export const addToast = (toast : Toast) => {
-    toast.id = crypto.randomUUID()
-    toasts.push(toast)
+export const addToast = (toast : ToastInput) => {
+    const newToast = { ...toast, id: crypto.randomUUID() }
+    toasts = [...toasts, newToast]
     notify(toasts)
 }

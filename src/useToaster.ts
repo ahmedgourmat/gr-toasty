@@ -14,7 +14,7 @@ export function useToast(){
       return () => {
         fn()
       }
-    }, [])
+    }, [toasts])
     
     return {toasts}
 

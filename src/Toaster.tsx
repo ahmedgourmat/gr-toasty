@@ -6,7 +6,7 @@ import { positionToStyle } from './utils/position'
 
 const Toaster = (props: ToasterProps) => {
 
-    const {toasts} : {toasts : Toast[]} = useToast()
+    const { toasts }: { toasts: Toast[] } = useToast()
 
     const position = positionToStyle(props.position)
 
@@ -22,7 +22,16 @@ const Toaster = (props: ToasterProps) => {
             }}
         >
             {
-                toasts.map(toast => <ToasterItem key={toast.id} message={toast.message} type={toast.type}/>)
+            toasts.map(toast => (
+                <ToasterItem
+                    key={toast.id}
+                    id={toast.id}
+                    message={toast.message}
+                    type={toast.type}
+                    duration={props.duration ?? 4000}
+                    variant={props.variant ?? "default"}
+                />
+            ))
             }
         </div>
     )
