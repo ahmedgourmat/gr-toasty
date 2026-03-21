@@ -18,6 +18,7 @@ let listeners = globalStore.__gr_toasty_listeners__
 let toasts = globalStore.__gr_toasty_toasts__
 
 export const subscribe = (listener: Function) => {
+    console.log("subscribe called, listeners count:", globalStore.__gr_toasty_listeners__.length)
     listeners.push(listener)
 
     return () => {
@@ -27,6 +28,7 @@ export const subscribe = (listener: Function) => {
 }
 
 const notify = (toasts: Toast[]) => {
+    console.log("notify called, listeners:", globalStore.__gr_toasty_listeners__.length, "toasts:", toasts.length)
     listeners.forEach(listener => listener(toasts))
 }
 
