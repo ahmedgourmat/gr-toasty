@@ -1,7 +1,6 @@
 import { Position } from "../types";
 
 export const positionToStyle = (position: Position | undefined) => {
-
     switch (position) {
         case 'top-left':
             return { top: "1rem", left: "1rem" }
@@ -18,6 +17,4 @@ export const positionToStyle = (position: Position | undefined) => {
         default:
             return { bottom: "1rem", right: "1rem" }
     }
-
-
 }

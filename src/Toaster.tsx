@@ -2,10 +2,9 @@ import React from 'react'
 import ToasterItem from './ToasterItem'
 import { Toast, ToasterProps } from './types'
 import { useToast } from './useToaster'
-import { positionToStyle } from './utils/position'
+import { positionToStyle } from './styles/position'
 
 const Toaster = (props: ToasterProps) => {
-
     const { toasts }: { toasts: Toast[] } = useToast()
 
     const position = positionToStyle(props.position)
@@ -29,7 +28,7 @@ const Toaster = (props: ToasterProps) => {
                     message={toast.message}
                     type={toast.type}
                     duration={props.duration ?? 4000}
-                    variant={props.variant ?? "default"}
+                    exitVariant={props.exitVariant ?? "default"}
                 />
             ))
             }
