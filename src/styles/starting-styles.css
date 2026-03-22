@@ -1,0 +1,49 @@
+.gr-toasty__item {
+  transition-property: opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* Enter starts opposite of exit end-state (see getExitStyle) */
+@starting-style {
+  .gr-toasty__item--default {
+    opacity: 0;
+  }
+
+  .gr-toasty__item--mac {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  .gr-toasty__item--left {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+
+  .gr-toasty__item--right {
+    opacity: 0;
+    transform: translateX(150%);
+  }
+
+  .gr-toasty__item--top {
+    opacity: 0;
+    transform: translateY(-150%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gr-toasty__item {
+    transition-duration: 0.01ms;
+  }
+
+  @starting-style {
+    .gr-toasty__item--default,
+    .gr-toasty__item--mac,
+    .gr-toasty__item--left,
+    .gr-toasty__item--right,
+    .gr-toasty__item--top {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
