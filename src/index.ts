@@ -1,7 +1,7 @@
+import "./styles/starting-styles.css";
 import Toaster from "./Toaster";
-import { Toast, ToasterProps } from "./types"
 import { toast } from "./api";
 
 
 export { Toaster, toast }
-export type { Toast, ToasterProps }
+export type { Toast, ToasterProps, AnimationStyle } from "./types"

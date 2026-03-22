@@ -1,8 +1,8 @@
 import { addToast } from "./store"
 
 
-export const toast = () => {
-    addToast({ type: "default", message: "This is a success toast" })
+export const toast = (message: string) => {
+    addToast({ type: "default", message })
 }
 
 toast.success = (message: string) =>

@@ -3,14 +3,14 @@ import { subscribe } from "./store";
 import { Toast } from "./types";
 
 export function useToast() {
-
   const [toasts, setToasts] = useState<Toast[]>([])
+
   useEffect(() => {
-    const fn = subscribe((toasts: Toast[]) => {
+    const unsubscribe = subscribe((toasts: Toast[]) => {
       setToasts(toasts)
     })
     return () => {
-      fn()
+      unsubscribe()
     }
   }, [])
 
